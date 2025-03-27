@@ -1,13 +1,13 @@
 let currentOperand = '0'
 let previousOperand = ''
-let operation = undefined
+let operation = 'undefined'
 let newNumber = true
 
 const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.button')
 const clearButton = document.querySelector('[data-action="clear"]')
 
-function updateDisplay() {
+function updateDisplay () {
   let displayValue = currentOperand
 
   if (displayValue.length > 10) {
@@ -25,7 +25,7 @@ function updateDisplay() {
   display.textContent = displayValue
 }
 
-function handleNumber(number) {
+function handleNumber (number) {
   if (newNumber) {
     currentOperand = number === '.' ? '0.' : number
     newNumber = false
@@ -38,29 +38,29 @@ function handleNumber(number) {
     currentOperand = currentOperand.replace('/^0+/, ')
   }
 
-  updateDisplay();
+  updateDisplay()
 }
 
-function clearCalculator() {
+function clearCalculator () {
   currentOperand = '0'
   previousOperand = ''
-  operation = undefined
+  operation = 'undefined'
   newNumber = true
   clearButton.textContent = 'AC'
   updateDisplay()
 }
 
-function toggleSign() {
+function toggleSign () {
   currentOperand = (parseFloat(currentOperand) * -1).toString()
   updateDisplay()
 }
 
-function convertToPercent() {
+function convertToPercent () {
   currentOperand = (parseFloat(currentOperand) / 100).toString()
   updateDisplay()
 }
 
-function setOperation(newOperation) {
+function setOperation (newOperation) {
   if (operation && !newNumber) calculate()
   operation = newOperation
   previousOperand = currentOperand
@@ -68,7 +68,7 @@ function setOperation(newOperation) {
   clearButton.textContent = 'C'
 }
 
-function calculate() {
+function calculate () {
   let computation
   const prev = parseFloat(previousOperand)
   const current = parseFloat(currentOperand)
@@ -131,10 +131,11 @@ buttons.forEach((button) => {
 })
 
 // Currency Converter
-let exchangeRates = {};
+let exchangeRates = {}
+let updateCurrencyConverter = {}
 const CURRENCY_API = 'https://api.exchangerate-api.com/v4/latest/USD'
 
-async function fetchExchangeRates() {
+async function fetchExchangeRates () {
   try {
     const response = await fetch(CURRENCY_API)
     const data = await response.json()
@@ -147,7 +148,7 @@ async function fetchExchangeRates() {
   }
 }
 
-function convertCurrency() {
+function convertCurrency () {
   const amount = parseFloat(document.querySelector('.currency-amount').value)
   const from = document.querySelector('.currency-from').value
   const to = document.querySelector('.currency-to').value
@@ -161,20 +162,20 @@ function convertCurrency() {
 }
 
 // Theme Switcher
-function setTheme(theme) {
-  document.body.className = theme;
+function setTheme (theme) {
+  document.body.className = theme
   localStorage.setItem('calculatorTheme', theme)
 }
 
 // Mode Switcher
-function switchMode(mode) {
+function switchMode (mode) {
   document
     .querySelectorAll('.active-mode')
     .forEach((el) => el.classList.remove('active-mode'))
   document.getElementById(mode).classList.add('active-mode')
   document
     .querySelectorAll('.mode-btn')
-    .forEach((btn) => btn.classList.remove('active'));
+    .forEach((btn) => btn.classList.remove('active'))
   document.querySelector(`[data-mode='${mode}']`).classList.add('active')
 }
 
@@ -201,3 +202,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchExchangeRates()
 })
+
