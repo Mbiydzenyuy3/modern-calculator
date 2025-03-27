@@ -132,7 +132,7 @@ buttons.forEach((button) => {
 
 // Currency Converter
 let exchangeRates = {}
-let updateCurrencyConverter = {}
+const updateCurrencyConverter = {}
 const CURRENCY_API = 'https://api.exchangerate-api.com/v4/latest/USD'
 
 async function fetchExchangeRates () {
@@ -202,4 +202,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchExchangeRates()
 })
-
