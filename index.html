@@ -16,7 +16,6 @@
     </div>
     <div class="calculator active-mode" id="calculator">
       <div class="display">0</div>
-      <div class="history-panel"></div>
       <div class="buttons">
         <button class="button gray" data-action="clear">AC</button>
         <button class="button gray" data-action="sign">±</button>
@@ -47,19 +46,21 @@
     <div class="currency-converter" id="currency">
       <div class="converter-inputs">
         <input type="number" class="currency-amount" placeholder="Amount" value="1">
-        <select class="currency-from">
-          <option value="USD">US Dollar</option>
-          <option value="EUR">Euro</option>
-          <option value="GBP">British Pound</option>
-          <option value="JPY">Japanese Yen</option>
-        </select>
-        <span class="converter-arrow">→</span>
-        <select class="currency-to">
-          <option value="EUR">Euro</option>
-          <option value="USD">US Dollar</option>
-          <option value="GBP">British Pound</option>
-          <option value="JPY">Japanese Yen</option>
-        </select>
+        <div class="select">
+          <select class="currency-from">
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">British Pound</option>
+            <option value="JPY">Japanese Yen</option>
+          </select>
+          <span class="converter-arrow">→</span>
+          <select class="currency-to">
+            <option value="EUR">Euro</option>
+            <option value="USD">US Dollar</option>
+            <option value="GBP">British Pound</option>
+            <option value="JPY">Japanese Yen</option>
+          </select>
+        </div>
       </div>
       <div class="converter-result">Loading rates...</div>
     </div>

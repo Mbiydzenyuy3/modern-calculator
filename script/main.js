@@ -130,6 +130,36 @@ buttons.forEach((button) => {
   });
 });
 
+// Currency Converter
+let exchangeRates = {};
+const CURRENCY_API = "https://api.exchangerate-api.com/v4/latest/USD";
+
+async function fetchExchangeRates() {
+  try {
+    const response = await fetch(CURRENCY_API);
+    const data = await response.json();
+    exchangeRates = data.rates;
+    updateCurrencyConverter();
+  } catch (error) {
+    document.querySelector(".converter-result").textContent =
+      "Failed to fetch rates. Using offline data.";
+    exchangeRates = { USD: 1, EUR: 0.85, GBP: 0.73, JPY: 110.0 }; // Fallback
+  }
+}
+
+function convertCurrency() {
+  const amount = parseFloat(document.querySelector(".currency-amount").value);
+  const from = document.querySelector(".currency-from").value;
+  const to = document.querySelector(".currency-to").value;
+
+  if (!amount || !exchangeRates[from] || !exchangeRates[to]) return;
+
+  const result = (amount / exchangeRates[from]) * exchangeRates[to];
+  document.querySelector(".converter-result").textContent = `${amount.toFixed(
+    2
+  )} ${from} = ${result.toFixed(2)} ${to}`;
+}
+
 // Theme Switcher
 function setTheme(theme) {
   document.body.className = theme;
