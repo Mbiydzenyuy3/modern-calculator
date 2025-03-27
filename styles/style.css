@@ -16,15 +16,19 @@ body {
 }
 
 .container {
-  margin: auto;
+  display: flex;
   width: 100%;
+  min-height: 100vh;
   max-width: 375px;
   padding: 20px;
   position: relative;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .calculator {
   width: 100%;
+  top: 10px;
 }
 
 .display {
@@ -135,6 +139,10 @@ body.light .button.dark-gray {
   background: #ff9f0a;
 }
 
+.mode-switcher {
+  margin-top: 40px;
+}
+
 .currency-converter {
   display: none;
   padding: 20px;
@@ -194,10 +202,11 @@ select {
   .display {
     font-size: 30px;
     padding: 10px;
+    margin-top: 50px;
   }
 
   .button {
-    height: 40px;
+    height: 70px;
     font-size: 18px;
   }
 }

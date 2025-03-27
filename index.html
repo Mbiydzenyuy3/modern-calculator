@@ -10,10 +10,7 @@
 
 <body>
   <div class="container">
-    <div class="mode-switcher">
-      <button class="mode-btn active" data-mode="calculator">Calculator</button>
-      <button class="mode-btn" data-mode="currency">Currency</button>
-    </div>
+
     <div class="calculator active-mode" id="calculator">
       <div class="display">0</div>
       <div class="buttons">
@@ -42,6 +39,10 @@
         <button class="button orange" data-action="calculate">=</button>
       </div>
     </div>
+    <div class="mode-switcher">
+      <button class="mode-btn active" data-mode="calculator">Calculator</button>
+      <button class="mode-btn" data-mode="currency">Currency</button>
+    </div>
     <!-- Currency Converter Mode -->
     <div class="currency-converter" id="currency">
       <div class="converter-inputs">
@@ -51,14 +52,18 @@
             <option value="USD">US Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound</option>
+            <option value="XAF">XAF</option>
             <option value="JPY">Japanese Yen</option>
           </select>
           <span class="converter-arrow">→</span>
           <select class="currency-to">
+
             <option value="EUR">Euro</option>
             <option value="USD">US Dollar</option>
+            <option value="XAF">XAF</option>
             <option value="GBP">British Pound</option>
             <option value="JPY">Japanese Yen</option>
+
           </select>
         </div>
       </div>
