@@ -4,40 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
   <title>Calculator</title>
 </head>
 
 <body>
-  <div class="calculator">
-    <div class="display">0</div>
-    <div class="buttons">
-      <button class="button gray" data-action="clear">AC</button>
-      <button class="button gray" data-action="sign">±</button>
-      <button class="button gray" data-action="percent">%</button>
-      <button class="button orange" data-action="divide">÷</button>
+  <div class="container">
+    <div class="mode-switcher">
+      <button class="mode-btn active" data-mode="calculator">Calculator</button>
+      <button class="mode-btn" data-mode="currency">Currency</button>
+      <button class="mode-btn" data-mode="unit">Units</button>
+    </div>
+    <div class="calculator active-mode" id="calculator">
+      <div class="display">0</div>
+      <div class="history-panel"></div>
+      <div class="buttons">
+        <button class="button gray" data-action="clear">AC</button>
+        <button class="button gray" data-action="sign">±</button>
+        <button class="button gray" data-action="percent">%</button>
+        <button class="button orange" data-action="divide">÷</button>
 
-      <button class="button dark-gray" data-number="7">7</button>
-      <button class="button dark-gray" data-number="8">8</button>
-      <button class="button dark-gray" data-number="9">9</button>
-      <button class="button orange" data-action="multiply">×</button>
+        <button class="button dark-gray" data-number="7">7</button>
+        <button class="button dark-gray" data-number="8">8</button>
+        <button class="button dark-gray" data-number="9">9</button>
+        <button class="button orange" data-action="multiply">×</button>
 
-      <button class="button dark-gray" data-number="4">4</button>
-      <button class="button dark-gray" data-number="5">5</button>
-      <button class="button dark-gray" data-number="6">6</button>
-      <button class="button orange" data-action="subtract">−</button>
+        <button class="button dark-gray" data-number="4">4</button>
+        <button class="button dark-gray" data-number="5">5</button>
+        <button class="button dark-gray" data-number="6">6</button>
+        <button class="button orange" data-action="subtract">−</button>
 
-      <button class="button dark-gray" data-number="1">1</button>
-      <button class="button dark-gray" data-number="2">2</button>
-      <button class="button dark-gray" data-number="3">3</button>
-      <button class="button orange" data-action="add">+</button>
+        <button class="button dark-gray" data-number="1">1</button>
+        <button class="button dark-gray" data-number="2">2</button>
+        <button class="button dark-gray" data-number="3">3</button>
+        <button class="button orange" data-action="add">+</button>
 
-      <button class="button dark-gray zero" data-number="0">0</button>
-      <button class="button dark-gray" data-number=".">.</button>
-      <button class="button orange" data-action="calculate">=</button>
+        <button class="button dark-gray zero" data-number="0">0</button>
+        <button class="button dark-gray" data-number=".">.</button>
+        <button class="button orange" data-action="calculate">=</button>
+      </div>
+    </div>
+    <!-- Currency Converter Mode -->
+    <div class="currency-converter" id="currency">
+      <div class="converter-inputs">
+        <input type="number" class="currency-amount" placeholder="Amount" value="1">
+        <select class="currency-from">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">British Pound</option>
+          <option value="JPY">Japanese Yen</option>
+        </select>
+        <span class="converter-arrow">→</span>
+        <select class="currency-to">
+          <option value="EUR">Euro</option>
+          <option value="USD">US Dollar</option>
+          <option value="GBP">British Pound</option>
+          <option value="JPY">Japanese Yen</option>
+        </select>
+      </div>
+      <div class="converter-result">Loading rates...</div>
+    </div>
+
+    <!-- Unit Converter Mode -->
+    <div class="unit-converter" id="unit">
+      <div class="unit-inputs">
+        <input type="number" class="unit-amount" placeholder="Amount">
+        <select class="unit-from">
+          <option value="cm">Centimeters</option>
+          <option value="m">Meters</option>
+          <option value="km">Kilometers</option>
+          <option value="in">Inches</option>
+        </select>
+        <span class="converter-arrow">→</span>
+        <select class="unit-to">
+          <option value="m">Meters</option>
+          <option value="cm">Centimeters</option>
+          <option value="km">Kilometers</option>
+          <option value="in">Inches</option>
+        </select>
+      </div>
+      <div class="unit-result"></div>
+    </div>
+
+    <div class="theme-switcher">
+      <button class="theme-btn" data-theme="dark">🌙</button>
+      <button class="theme-btn" data-theme="light">☀️</button>
     </div>
   </div>
-
-
+  <script src="./script/main.js"></script>
 </body>
 
 </html>
