@@ -7,7 +7,7 @@ const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.button')
 const clearButton = document.querySelector('[data-action="clear"]')
 
-function updateDisplay() {
+function updateDisplay () {
   let displayValue = currentOperand
 
   if (displayValue.length > 10) {
@@ -25,7 +25,7 @@ function updateDisplay() {
   display.textContent = displayValue
 }
 
-function handleNumber(number) {
+function handleNumber (number) {
   if (newNumber) {
     currentOperand = number === '.' ? '0.' : number
     newNumber = false
@@ -41,7 +41,7 @@ function handleNumber(number) {
   updateDisplay()
 }
 
-function clearCalculator() {
+function clearCalculator () {
   currentOperand = '0'
   previousOperand = ''
   operation = 'undefined'
@@ -50,17 +50,17 @@ function clearCalculator() {
   updateDisplay()
 }
 
-function toggleSign() {
+function toggleSign () {
   currentOperand = (parseFloat(currentOperand) * -1).toString()
   updateDisplay()
 }
 
-function convertToPercent() {
+function convertToPercent () {
   currentOperand = (parseFloat(currentOperand) / 100).toString()
   updateDisplay()
 }
 
-function setOperation(newOperation) {
+function setOperation (newOperation) {
   if (operation && !newNumber) calculate()
   operation = newOperation
   previousOperand = currentOperand
@@ -68,7 +68,7 @@ function setOperation(newOperation) {
   clearButton.textContent = 'C'
 }
 
-function calculate() {
+function calculate () {
   let computation
   const prev = parseFloat(previousOperand)
   const current = parseFloat(currentOperand)
@@ -135,7 +135,7 @@ let exchangeRates = {}
 const updateCurrencyConverter = {}
 const CURRENCY_API = 'https://api.exchangerate-api.com/v4/latest/USD'
 
-async function fetchExchangeRates() {
+async function fetchExchangeRates () {
   try {
     const response = await fetch(CURRENCY_API)
     const data = await response.json()
@@ -147,7 +147,7 @@ async function fetchExchangeRates() {
   }
 }
 
-function convertCurrency() {
+function convertCurrency () {
   const amount = parseFloat(document.querySelector('.currency-amount').value)
   const from = document.querySelector('.currency-from').value
   const to = document.querySelector('.currency-to').value
@@ -161,13 +161,13 @@ function convertCurrency() {
 }
 
 // Theme Switcher
-function setTheme(theme) {
+function setTheme (theme) {
   document.body.className = theme
   localStorage.setItem('calculatorTheme', theme)
 }
 
 // Mode Switcher
-function switchMode(mode) {
+function switchMode (mode) {
   document
     .querySelectorAll('.active-mode')
     .forEach((el) => el.classList.remove('active-mode'))
