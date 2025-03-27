@@ -13,7 +13,6 @@
     <div class="mode-switcher">
       <button class="mode-btn active" data-mode="calculator">Calculator</button>
       <button class="mode-btn" data-mode="currency">Currency</button>
-      <button class="mode-btn" data-mode="unit">Units</button>
     </div>
     <div class="calculator active-mode" id="calculator">
       <div class="display">0</div>
@@ -64,28 +63,6 @@
       </div>
       <div class="converter-result">Loading rates...</div>
     </div>
-
-    <!-- Unit Converter Mode -->
-    <div class="unit-converter" id="unit">
-      <div class="unit-inputs">
-        <input type="number" class="unit-amount" placeholder="Amount">
-        <select class="unit-from">
-          <option value="cm">Centimeters</option>
-          <option value="m">Meters</option>
-          <option value="km">Kilometers</option>
-          <option value="in">Inches</option>
-        </select>
-        <span class="converter-arrow">→</span>
-        <select class="unit-to">
-          <option value="m">Meters</option>
-          <option value="cm">Centimeters</option>
-          <option value="km">Kilometers</option>
-          <option value="in">Inches</option>
-        </select>
-      </div>
-      <div class="unit-result"></div>
-    </div>
-
     <div class="theme-switcher">
       <button class="theme-btn" data-theme="dark">🌙</button>
       <button class="theme-btn" data-theme="light">☀️</button>
