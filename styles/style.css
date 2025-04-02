@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Ubuntu, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-size: calc(1rem + 0.5vw);
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 375px;
+  padding: 20px;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.calculator {
+  width: 100%;
+  top: 10px;
+}
+
+.display {
+  color: white;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 60px;
+  padding: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(60px, auto));
+  gap: 10px;
+}
+
+input.currency-amount {
+  padding: 10px 2px;
+  border-radius: 8px;
+  border: 0;
+}
+
+.button {
+  width: auto;
+  border: none;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  transition: filter 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:active {
+  filter: brightness(130%);
+}
+
+.gray {
+  background: #a5a5a5;
+  color: black;
+}
+
+.dark-gray {
+  background: #333;
+  color: white;
+}
+
+.orange {
+  background: #ff9f0a;
+  color: white;
+}
+
+.zero {
+  grid-column: span 2;
+  width: 100%;
+  border-radius: 35px;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.history-panel {
+  color: #888;
+  text-align: right;
+  padding: 10px;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Light Theme */
+body.light {
+  background: #f0f0f0;
+}
+
+body.light .button.dark-gray {
+  background: #e0e0e0;
+  color: black;
+}
+
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mode-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: #ff9f0a;
+}
+
+.mode-switcher {
+  margin-top: 40px;
+}
+
+.currency-converter {
+  display: none;
+  padding: 20px;
+  background: #1c1c1c;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.active-mode {
+  display: block !important;
+}
+
+.converter-inputs {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  background: #333;
+  color: white;
+  border: none;
+}
+
+.converter-result {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .display {
+    font-size: 40px;
+    padding: 15px;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    gap: 8px;
+  }
+
+  .button {
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display {
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .button {
+    height: 70px;
+    font-size: 18px;
+  }
+}
